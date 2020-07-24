@@ -1,0 +1,9 @@
+30/6/2020
+SQL in pycharm - dl from sqlite3 website > copy def file to pythonpath (eg. root, myenv)
+fix keydir error- if dict is empty or wrong addresing
+dropdown menu
+list of symbols is not uptodate, new one is downloaded but w 100K+ entries > small list was created
+
+
+to access a specific control after form submission
+#if 'symbol_selector' in request.POST:

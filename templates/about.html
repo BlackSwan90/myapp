@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+<p>
+{% block content %}
+
+<h1>About</h1>
+<p>new paragraph About</p>
+
+
+
+
+<p>
+{{mylist}}
+</p>
+
+<ul>
+{% for subitem in mylist %}
+<! needs to be a space around equal operator == >
+	{% if subitem == 15 %} 
+		<li>{{forloop.counter}} {{subitem|add:15}}</li>
+	{% elif subitem == 'abc' %}
+		<li>this is a string</li>
+	{% else %}
+		<li>{{forloop.counter}} {{subitem}}</li>
+	{% endif %}
+{% endfor %}	
+</ul>
+{% comment 'mynote' %}
+dgsgdg not seen in html body
+{% endcomment %}
+
+{% endblock %}
+</p>

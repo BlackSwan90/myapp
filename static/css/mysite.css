@@ -1,0 +1,31 @@
+body{
+	background: #DDD8D8;
+}
+
+#mysidenav {
+	margin-top: 10px;
+}
+
+#categoriers {
+	margin-top: 10px;
+}
+
+#maincontent {
+	margin-top: 10px;
+	padding: 20px;
+}
+
+#homegraph {
+	width: 1000px;
+	height: 500px;
+}
+
+p{
+	font-family: 'Open Sans', sans-serif;
+	font-size:14px;
+}
+
+h1{
+	font-family: 'Oswald', sans-serif;
+	font-size:40px;
+}

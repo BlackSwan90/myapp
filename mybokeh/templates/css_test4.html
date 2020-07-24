@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html>
+<head>
+
+{% comment %}
+	<link rel="stylesheet" href="http://cdn.pydata.org/bokeh/release/bokeh-2.0.2.min.css" type="text/css" />
+
+   <link rel="stylesheet" href="http://cdn.pydata.org/bokeh/release/bokeh-widgets-2.0.2.min.css" type="text/css" />
+
+   <link rel="stylesheet" href="http://cdn.pydata.org/bokeh/release/bokeh-tables-2.0.2.min.css" type="text/css" />
+{% endcomment %}
+
+   <script type="text/javascript" src="http://cdn.pydata.org/bokeh/release/bokeh-2.0.2.min.js"></script>
+
+   <script type="text/javascript" src="http://cdn.pydata.org/bokeh/release/bokeh-widgets-2.0.2.min.js"></script>
+
+   <script type="text/javascript" src="http://cdn.pydata.org/bokeh/release/bokeh-tables-2.0.2.min.js"></script>
+
+   <script type="text/javascript" src="http://cdn.pydata.org/bokeh/release/bokeh-api-2.0.2.min.js"></script>
+</head>
+
+
+<body>
+
+<div id='homegraph' style="margin: 20px" class="col">
+    {{ div | safe }}
+</div>
+
+
+<div>
+    <form action='.' method='POST'>
+        <b>Data Retain</b>
+        <ul style="list-style-type:none;">
+                <li>
+                    <b>Symbol</b>
+                    <select id='symbol_selector' name='symbol_selector'>
+                        <option selected value="{{ selected_symbol }}">{{ selected_symbol }}</option>
+                        {% for myitem in symbol_name_comb_list %}
+                            <option value="{{ myitem.1 }}">{{ myitem.0 }}</option>
+                        {% endfor %}
+                    </select>
+                </li>
+
+                <li>
+                    <b>Epoch = per x rep </b> <br/>
+                    <b>Period</b>
+                    <select id='period_selector' name='period_selector'>
+                        <option selected value="{{ selected_period }}" >{{ selected_period }}</option>
+                        {% for period in period_list %}
+                            <option value="{{ period }}">{{ period }}</option>
+                        {% endfor %}
+                    </select>
+                </li>
+
+                <li>
+                    <b>Repetation</b>
+                    <input type ="text" id = "period_number" name = "period_number" value="{{ period_number }}">
+                </li>
+
+                <b>Sampling = int x freq</b> <br/>
+                <b>Freq interval</b>
+                    <select id='freqtype_selector' name='freqtype_selector'>
+                        <option selected value="{{ selected_freqtype }}">{{ selected_freqtype }}</option>
+                        {% for freqtype in freqtype_list %}
+                            <option value="{{ freqtype }}">{{ freqtype }}</option>
+                        {% endfor %}
+                    </select>
+                </li>
+
+                <li>
+                    <b>Freq</b>
+                    <select id='freqnum_selector' name='freqnum_selector'>
+                        <option selected value="{{ selected_freqnum }}">{{ selected_freqnum }}</option>
+                        {% for freqtypenum in freqnum_list %}
+                            <option value="{{ freqtypenum }}">{{ freqtypenum }}</option>
+                        {% endfor %}
+                    </select>
+                </li>
+            </ul>
+
+            <div>
+                <b>Axis range</b>
+                <ul style="list-style-type:none;">
+
+                    <li>
+                        <input type="radio" name="axis_limit" value="" checked >auto</input>
+                        <input type="radio" name="axis_limit" value="checked" {{ manual_selection }} >manual</input>
+                    </li>
+
+                    <li>
+                        <b>Time <br/> format: yyyy-mm-dd hh:mm:ss</b> <br/>
+                        <b>start</b>
+                        <input type ="text" id = "time_min" name = "time_min" value="{{ time_range.0 }}">
+                    </li>
+                    <li>
+                        <b>end</b>
+                        <input type ="text" id = "time_max" name = "time_max" value="{{ time_range.1 }}">
+                    </li>
+
+                    <li>
+                        <b>Price (min,max)</b>
+                        <input type ="text" id = "price_range" name = "price_range" value="{{ price_range }}">
+                    </li>
+
+                </ul>
+            </div>
+
+    <div><input type='submit' value='Update plot' /></div>
+    </form>
+</div>
+
+
+
+
+
+
+</body>
+    {{ script | safe }}
+</html>

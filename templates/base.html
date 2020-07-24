@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+<head>
+	<title>mytitle</title>
+	</head>
+
+<body>
+	{% include 'navbar.html' %}
+
+	{% block content %}
+	replace me
+	{{ request.user }}
+	{% endblock %}
+</body>
+</html>
