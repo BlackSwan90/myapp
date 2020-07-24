@@ -3,7 +3,8 @@ import pandas as pd
 
 def load_symbols():
     # needs to install pip install xlrd to read xlsx files !!!
-    mypath = os.path.join(os.getcwd(), 'mybokeh', 'yh_symbols_selection.xlsx')
+    #mypath = os.path.join(os.getcwd(), 'mybokeh', 'yh_symbols_selection.xlsx')
+    mypath = os.path.join(BASE_DIR, 'mybokeh', 'yh_symbols_selection.xlsx')
     df = pd.read_excel(mypath)
     return df[['Symbol', 'Name']]
 
